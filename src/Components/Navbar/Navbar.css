@@ -1,0 +1,48 @@
+.Navbar
+{
+    width: 100%;
+  /*  background-color: rgb(207, 212, 198);/
+    position: fixed;
+   /* border-bottom: 1px solid black;*/
+
+}
+/* .Navbar::after
+{
+    content:'';
+    height: 5px;
+    width: 100%;
+    background-color: aquamarine;
+    position: absolute;
+    top:0px;
+    left:0px;
+} */
+.left
+{
+    font-size: 1.8rem;
+
+}
+.flex_item
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner-nav
+{
+    width: 80%;
+    justify-content: space-between !important;
+    padding: 20px 0px;
+
+}
+
+.icons
+{
+    justify-content: space-between !important;
+    width: 120px;
+}
+.right ul li
+{
+    padding: 10px 15px;
+    font-size: 1.8rem;
+}
+
