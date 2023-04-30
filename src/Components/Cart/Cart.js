@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./Cart.css";
 import { Item } from "./Item"; 
 import {products} from './Product';
-const Cart = () => {
+
+const Cart = (props) => {
     const [item,setItem] =useState(products);
   return (
     <>
@@ -26,9 +27,9 @@ const Cart = () => {
         <div className="cart-items">
           <div className="cart-items-container">
                {
-                item.map((curItem) =>
+                props.cartitem.map((curItem) =>
                 {
-                    return <Item key={ curItem.id} {...curItem}/>
+                    return <Item data= {curItem}/>
                 })
                }
                

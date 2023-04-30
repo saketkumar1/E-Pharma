@@ -1,13 +1,13 @@
-
 import "./App.css";
 import SupportList from "./Components/Support/SupportList";
 import BigCardList from "./Components/BigCard/BigCardList";
 import "./Components/Support/Support.css";
 import "./Components/Card/Card.css";
 import CardList from "./Components/Card/CardList";
+import Cart from "./Components/Cart/Cart";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
-
+import React, { useState } from "react";
 
 function App() {
   const products = [
@@ -71,6 +71,29 @@ function App() {
     },
   ];
 
+  const CartData = [
+    {
+      img: "./assets/HumidifyingUnitforHome.jpg",
+      price: "20$",
+      title: "Humidifying unit for home",
+    },
+  ];
+
+  const [getCart, setCart] = useState(CartData);
+
+  const addCart = (data) => {
+    const newCartData = [...getCart];
+
+    newCartData.push({
+      img: data.img,
+      price: data.price,
+      title: data.title,
+    });
+
+    setCart(newCartData);
+  };
+
+ 
   return (
     <>
       <div className="App">
@@ -86,10 +109,14 @@ function App() {
         <BigCardList cardData={BigCardData} />
       </div>
 
-    <h1 className="text-center mt-5" style={{fontWeight:'600'}}>New Arrivals</h1>
+      <h1 className="text-center mt-5" style={{ fontWeight: "600" }}>
+        New Arrivals
+      </h1>
       <div className="card-grid">
-        <CardList CardData={CardData} />
+        <CardList CardData={CardData} addCart={addCart} />
       </div>
+
+      <Cart cartitem={getCart}/>
     </>
   );
 }
