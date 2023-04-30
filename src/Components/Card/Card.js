@@ -7,8 +7,8 @@ export default function Card(props) {
       <img src={props.CardData.img} alt="img" srcset="" />
       <div className="card-text mt-3">
         <p className="text-head">{props.CardData.title}</p>
-        <p className="fw-bold">{props.CardData.price}</p>
-        <p className="fw-bold">
+        <p className="fw-bold text-shead">{props.CardData.price}</p>
+        <p className="fw-bold text-shead">
           {" "}
           <i class="uil uil-heart"></i>Add to wishlist
         </p>
