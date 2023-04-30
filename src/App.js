@@ -1,3 +1,4 @@
+
 import "./App.css";
 import SupportList from "./Components/Support/SupportList";
 import BigCardList from "./Components/BigCard/BigCardList";
@@ -6,6 +7,7 @@ import "./Components/Card/Card.css";
 import CardList from "./Components/Card/CardList";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
+
 
 function App() {
   const products = [
