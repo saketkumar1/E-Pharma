@@ -4,14 +4,13 @@
     height: 40px;
 }
 
-
 .info-header{
-    font-size: 0.9rem;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 
 .info-subheader{
-    font-size: 0.7rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
