@@ -1,0 +1,33 @@
+
+.info-logo{
+    width: 50px;
+    height: 40px;
+}
+
+.info-header{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.info-subheader{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.infogrid{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 12rem;
+    margin-right: 12rem;
+
+}
+
+.myinfocard{
+    display: flex;
+    flex-direction: row;
+}
+
+.infotext{
+    margin-left: 15px;
+}
