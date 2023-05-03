@@ -8,7 +8,7 @@ import Cart from "./Components/Cart/Cart";
 import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import React, { useState } from "react";
-
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 function App() {
   const products = [
     {
@@ -51,31 +51,36 @@ function App() {
   const CardData = [
     {
       img: "./assets/HumidifyingUnitforHome.jpg",
-      price: "20$",
+      price: "20",
       title: "Humidifying unit for home",
+      quantity: 0,
     },
     {
       img: "./assets/EssentialOilsSet.jpg",
-      price: "29$",
+      price: "29",
       title: "Essential unit set",
+      quantity: 0,
     },
     {
       img: "./assets/BloodPressureMonitor.jpg",
-      price: "10$",
+      price: "10",
       title: "Blood Pressure Monitor",
+      quantity: 0,
     },
     {
       img: "./assets/NailsandHairComplex.jpg",
-      price: "22$",
+      price: "22",
       title: "Nails and Hair Complex",
+      quantity: 0,
     },
   ];
 
   const CartData = [
     {
       img: "./assets/HumidifyingUnitforHome.jpg",
-      price: "20$",
+      price: "20",
       title: "Humidifying unit for home",
+      quantity: 0,
     },
   ];
 
@@ -88,35 +93,72 @@ function App() {
       img: data.img,
       price: data.price,
       title: data.title,
+      quantity: 0,
     });
-
     setCart(newCartData);
   };
+  // let [productList, setProductList] = useState(CartData);
+  const incrementQuantity = (index) => {
+    let newProductList = [...getCart];
+    newProductList[index].quantity++;
+    setCart(newProductList);
+  };
 
- 
+  const removeItem = (index) => {
+    let newProductList = [...getCart];
+    newProductList.splice(index + 1, 1);
+    setCart(newProductList);
+  };
+
+  const decrementQuantity = (index) => {
+    let newProductList = [...getCart];
+    if (newProductList[index].quantity > 0) {
+      newProductList[index].quantity--;
+    }
+    setCart(newProductList);
+  };
+
   return (
     <>
-      <div className="App">
-        <>
-          <Navbar />
-          <Hero />
-        </>
-      </div>
-      <div className="infogrid">
-        <SupportList products={products} />
-      </div>
-      <div className="bigcardgrid">
-        <BigCardList cardData={BigCardData} />
-      </div>
-
-      <h1 className="text-center mt-5" style={{ fontWeight: "600" }}>
-        New Arrivals
-      </h1>
-      <div className="card-grid">
-        <CardList CardData={CardData} addCart={addCart} />
-      </div>
-
-      <Cart cartitem={getCart}/>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route   exact
+            path="/"
+            element= {
+              <>
+              <Hero />
+              <div className="infogrid">
+                <SupportList products={products} />
+              </div>
+              <div className="bigcardgrid">
+                <BigCardList cardData={BigCardData} />
+              </div>
+  
+              <h1 className="text-center mt-5" style={{ fontWeight: "600" }}>
+                New Arrivals
+              </h1>
+              <div className="card-grid">
+                <CardList CardData={CardData} addCart={addCart} />
+              </div>
+              </>
+            }>
+           
+          </Route>
+          <Route
+            exact
+            path="/cart"
+            element={
+              <Cart
+                cartitem={getCart}
+                incrementQuantity={incrementQuantity}
+                decrementQuantity={decrementQuantity}
+                removeItem={removeItem}
+              />
+            }
+          ></Route>
+        </Routes>
+      </Router>
     </>
   );
 }

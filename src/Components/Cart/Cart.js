@@ -27,9 +27,12 @@ const Cart = (props) => {
         <div className="cart-items">
           <div className="cart-items-container">
                {
-                props.cartitem.map((curItem) =>
+                props.cartitem.map((curItem,i) =>
                 {
-                    return <Item data= {curItem}/>
+                    return <Item data= {curItem} 
+                    incrementQuantity={props.incrementQuantity}
+                    index={i}
+                    decrementQuantity={props.decrementQuantity} removeItem={props.removeItem}/>
                 })
                }
                
