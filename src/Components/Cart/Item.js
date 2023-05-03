@@ -13,16 +13,22 @@ export const Item = (props) => {
         </div>
 
         <div className="add-minus-quantity">
-          <i className="fas fa-minus minus"></i>
-          <input type="text" placeholder="2" />
-          <i className="fas fa-plus add"></i>
+          <i className="fas fa-minus minus"             onClick={() => {
+              props.decrementQuantity(props.index);
+            }}
+></i>
+          <input type="text" placeholder={props.data.quantity} />
+          <i className="fas fa-plus add"   onClick={() => {
+              props.incrementQuantity(props.index);
+            }}></i>
         </div>
         <div className="price">
-          <h3>{props.data.price}</h3>
+          <h3>{ props.data.price * props.data.quantity }
+        </h3>
         </div>
 
         <div className="remove-item">
-          <i className="fas fa-trash-alt  remove"></i>
+          <i className="fas fa-trash-alt  remove" onClick={() =>{props.removeItem();}}></i>
         </div>
       </div>
       <hr />
