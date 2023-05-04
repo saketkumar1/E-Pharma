@@ -10,6 +10,7 @@ import Hero from "./Components/Hero/Hero";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Detail from "./Components/Detail/Detail";
+
 function App() {
   const products = [
     {
@@ -105,6 +106,7 @@ function App() {
     setCart(newProductList);
   };
 
+
   const removeItem = (index) => {
     let newProductList = [...getCart];
     newProductList.splice(index + 1, 1);
@@ -162,6 +164,7 @@ function App() {
             path="/detail/:index"
             element={<Detail CardData={CardData} addCart={addCart} />}
           ></Route>
+
         </Routes>
       </Router>
     </>
