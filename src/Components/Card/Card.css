@@ -1,49 +1,90 @@
-.card-main{
-    width: 19rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-left: 3rem;
+.card-main {
+  width: 19rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-left: 3rem;
 }
 
-.card-main img{
- width: 100%;
+.card-main img {
+  cursor: pointer;
+  width: 100%;
 }
 
-.text-head{
-    font-size: 1.4rem;
-    color: rgb(124, 121, 116);
-
+.text-head {
+  font-size: 1.4rem;
+  color: rgb(124, 121, 116);
 }
 
-.text-shead{  
-    font-size: 1.4rem;
+.text-shead {
+  font-size: 1.4rem;
 }
 
-
-.cart-Button{
-    height: 100%;
-    width: 100%;
-    bottom: 0;
-    font-size: 1.6rem;
-    margin-bottom: 0px;
-    padding: 10px 1px 10px 1px;
+.cart-Button {
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  font-size: 1.6rem;
+  margin-bottom: 0px;
+  padding: 10px 1px 10px 1px;
 }
 
-.cart-Button:hover{
-    cursor: pointer;
-    background-color: rgb(177, 197, 197);
+.cart-Button:hover {
+  cursor: pointer;
+  background-color: rgb(177, 197, 197);
 }
 
-
-.card-text{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.card-grid{
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    margin: 2rem 1rem 5rem 1rem;
-   
+.card-grid {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin: 2rem 1rem 5rem 1rem;
+}
+
+/*detail*/
+
+.detail-card {
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-top: 5rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-card div {
+  width: 50%;
+}
+
+.detail-img img {
+  width: 100%;
+  height: 50rem;
+}
+
+.detail-right {
+  padding: 3rem;
+}
+
+.detail-right h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.detail-price {
+  font-size: 2.3rem;
+}
+
+.detail-desc {
+  padding-top: 11rem;
+  font-size: 1.5rem;
+}
+
+.detail-right button {
+  margin-top: 5rem;
+  font-size: 1.7rem;
+  padding: 1rem;
 }
