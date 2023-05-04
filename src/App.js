@@ -9,6 +9,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import Hero from "./Components/Hero/Hero";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Detail from "./Components/Detail/Detail";
+
 function App() {
   const products = [
     {
@@ -51,25 +53,25 @@ function App() {
   const CardData = [
     {
       img: "./assets/HumidifyingUnitforHome.jpg",
-      price: "20",
+      price: "200",
       title: "Humidifying unit for home",
       quantity: 0,
     },
     {
       img: "./assets/EssentialOilsSet.jpg",
-      price: "29",
+      price: "290",
       title: "Essential unit set",
       quantity: 0,
     },
     {
       img: "./assets/BloodPressureMonitor.jpg",
-      price: "10",
+      price: "1000",
       title: "Blood Pressure Monitor",
       quantity: 0,
     },
     {
       img: "./assets/NailsandHairComplex.jpg",
-      price: "22",
+      price: "220",
       title: "Nails and Hair Complex",
       quantity: 0,
     },
@@ -104,6 +106,7 @@ function App() {
     setCart(newProductList);
   };
 
+
   const removeItem = (index) => {
     let newProductList = [...getCart];
     newProductList.splice(index + 1, 1);
@@ -123,28 +126,28 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route   exact
+          <Route
+            exact
             path="/"
-            element= {
+            element={
               <>
-              <Hero />
-              <div className="infogrid">
-                <SupportList products={products} />
-              </div>
-              <div className="bigcardgrid">
-                <BigCardList cardData={BigCardData} />
-              </div>
-  
-              <h1 className="text-center mt-5" style={{ fontWeight: "600" }}>
-                New Arrivals
-              </h1>
-              <div className="card-grid">
-                <CardList CardData={CardData} addCart={addCart} />
-              </div>
+                <Hero />
+                <div className="infogrid">
+                  <SupportList products={products} />
+                </div>
+                <div className="bigcardgrid">
+                  <BigCardList cardData={BigCardData} />
+                </div>
+
+                <h1 className="text-center mt-5" style={{ fontWeight: "600" }}>
+                  New Arrivals
+                </h1>
+                <div className="card-grid">
+                  <CardList CardData={CardData} addCart={addCart} />
+                </div>
               </>
-            }>
-           
-          </Route>
+            }
+          ></Route>
           <Route
             exact
             path="/cart"
@@ -157,6 +160,11 @@ function App() {
               />
             }
           ></Route>
+          <Route
+            path="/detail/:index"
+            element={<Detail CardData={CardData} addCart={addCart} />}
+          ></Route>
+
         </Routes>
       </Router>
     </>
