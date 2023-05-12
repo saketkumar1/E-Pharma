@@ -1,10 +1,36 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import Card from "./Card";
-import Detail from "../Detail/Detail";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+
 
 export default function CardList(props) {
-  return props.CardData.map((CardData,i) => {
+
+  const [getData,setData]=useState([])
+
+  useEffect(()=>{
+   
+    getProduct()
+  },[])
+
+    async function getProduct(){
+
+     const response= await fetch('https://fakestoreapi.com/products');
+     const output=await response.json();
+
+     const getmapeddata=output.map((pdtdata)=>{
+      return {
+          id:pdtdata.id,
+          img: pdtdata.image,
+          price: pdtdata.price,
+          title: pdtdata.title,
+          quantity: 0,
+        };
+      })
+     
+     setData(getmapeddata)
+    }
+
+
+  return getData.map((CardData,i) => {
     return (
       <div>
         <Card

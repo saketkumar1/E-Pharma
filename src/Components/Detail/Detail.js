@@ -1,30 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function Detail(props) {
   const { index } = useParams();
-  const value = props.CardData[index];
-  const img = String(props.CardData[index].img).substring(1);
+
+  const [value, setData] = useState([]);
+
+  useEffect(() => {
+    getProduct(Number(index) + 1);
+  }, []);
+
+  async function getProduct(dv) {
+    const response = await fetch("https://fakestoreapi.com/products/" + dv);
+    const output = await response.json();
+    setData(output);
+  }
+
+  const data = {
+    img: value.image,
+    price: value.price,
+    title: value.title,
+    quantity: 0,
+  };
 
   return (
     <div className="detail-card">
       <div className="detail-img">
-        <img src={img} alt="imgg" srcset="" />
+        <img src={value.image} alt="imgg" srcset="" />
       </div>
       <div className="detail-right">
         <h2>{value.title}</h2>
-        <p className="detail-price">₹ {value.price}</p>
-        <p className="detail-desc">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
-          totam quae aperiam magnam minima vitae deserunt? Facere laboriosam
-          quidem itaque, inventore fugiat molestiae vel excepturi laudantium, ea
-          molestias dolorem corporis.
-        </p>
+        <p className="detail-price">$ {value.price}</p>
+        <p className="detail-desc">{value.description}</p>
 
         <button
           className="fw-bold btn btn-primary"
           onClick={() => {
-            props.addCart(value);
+            props.addCart(data);
           }}
         >
           <i class="uil uil-shopping-cart-alt"></i> Add to Cart

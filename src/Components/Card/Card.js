@@ -8,11 +8,13 @@ export default function Card(props) {
     let path = `/detail/${props.index}`;
     navigate(path);
   };
+
+  const tt=props.CardData.title.substring(0,30);
   return (
     <div className="card-main">
       <img src={props.CardData.img} alt="img" srcset="" onClick={routeChange} />
       <div className="card-text mt-3">
-        <p className="text-head"> {props.CardData.title}</p>
+        <p className="text-head"> {tt}</p>
         <p className="fw-bold text-shead">₹ {props.CardData.price}</p>
         <p
           className="fw-bold cart-Button text-center"
